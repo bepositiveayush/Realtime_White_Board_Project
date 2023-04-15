@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+
+}
+.toolbar {
+    height: 15vh;
+    display: flex;
+}
+.tool{
+    height: 80%;
+}
+#pencil,#eraser{
+    height: 100%;
+
+}
+.stickypad{
+    position: absolute;
+    height: 10rem;
+    width: 6rem;
+    /* background-color: yellow; */
+    left: 40vh;
+    top: 30vh;
+
+}
+.navbar{
+    height: 30%;
+    background-color:aquamarine;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.close,.minimize{
+    height: 80%;
+    width: 20%;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: red;
+
+}
+.minimize{
+    background: lightgreen;
+}
+.text-area{
+    height: 80%;
+    /* background-color: brown; */
+    
+
+}
+textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: bisque;
+}
+
