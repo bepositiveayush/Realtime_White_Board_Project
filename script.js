@@ -53,6 +53,9 @@ for(let i=0 ; i<tools.length;i++){
         else if(name == "eraser"){
             tool.strokeStyle = "white";
         }
+        else if(name == "sticky"){
+            createSticky();
+        }
 
     })
 
@@ -60,64 +63,107 @@ for(let i=0 ; i<tools.length;i++){
 
 //sticky code
 
-let navbar = document.querySelector(".navbar");
-let stickyPad = document.querySelector(".stickypad");
-let minimized = document.querySelector(".minimize");
-let textarea = document.querySelector(".text-area");
-let close = document.querySelector(".close");
-let initialX = null;
-let initialy = null;
-let isStickydown = false;
-let isMinimized = false;
 
-navbar.addEventListener("mousedown",function(e){
-    //initial point
-    initialX = e.clientX;
-    initialy = e.clientY;
-    isStickydown = true;
 
-})
+function createSticky(){
+//     <!-- <div class="stickypad">
+//     <div class="navbar">
+//         <div class="close"></div>
+//         <div class="minimize"></div>
+//     </div>
+//     <div class="text-area">
+//         <textarea name="" id="" cols="30" rows="10"></textarea>
+//     </div>
+// </div> -->
+    
+    let stickypad = document.createElement("div");
+    let navBar = document.createElement("div");
+    let Close = document.createElement("div");
+    let minimize = document.createElement("div");
+    let textbox = document.createElement("div");
+    let textarea = document.querySelector("textarea");
+    //add Classes
+  
+    stickypad.setAttribute("class","stickypad");
+    navBar.setAttribute("class","nav-bar");
+    Close.setAttribute("class","close");
+    minimize.setAttribute("class","minimize");
+    textbox.setAttribute("class","text-area");
+    //create Subtree
+    stickypad.appendChild(navBar);
+    stickypad.appendChild(textbox);
+    navBar.appendChild(minimize);
+    navBar.appendChild(Close);
+    //add subtree to the page
+    document.body.appendChild(textarea);
 
-canvas.addEventListener("mousemove",function(e){
-    if(isStickydown == true){
-        //final point
-    let finalX = e.clientX;
-    let finalY = e.clientY;
-    //distance
-    let dx = finalX-initialX;
-    let dy = finalY-initialy;
-    //move sticky,original top,left
-    let {top , left} = stickyPad.getBoundingClientRect();
-    stickyPad.style.top = top+dy+"px";
-    stickyPad.style.left = left+dx+"px";
-    initialX = finalX;
-    initialy = finalY;
 
-    }
+// let initialX = null;
+// let initialy = null;
+// let isStickydown = false;
+// let isMinimized = false;
+
+// navbar.addEventListener("mousedown",function(e){
+//     //initial point
+//     initialX = e.clientX;
+//     initialy = e.clientY;
+//     isStickydown = true;
+
+// })
+
+// canvas.addEventListener("mousemove",function(e){
+//     if(isStickydown){
+//         //final point
+//     let finalX = e.clientX;
+//     let finalY = e.clientY;
+//     //distance
+//     let dx = finalX-initialX;
+//     let dy = finalY-initialy;
+//     //move sticky,original top,left
+//     let {top , left} = stickyPad.getBoundingClientRect();
+//     stickyPad.style.top = top+dy+"px";
+//     stickyPad.style.left = left+dx+"px";
+//     initialX = finalX;
+//     initialy = finalY;
+
+//     }
     
 
-})
+// })
 
-window.addEventListener("mouseup",function (){
-
-    isStickydown = false;
-
-})
-
-close.addEventListener("click",function(){
-    stickyPad.remove();
-})
+// navbar.addEventListener("mouseup",function(e){
+//     isStickydown = false;
+// })
 
 
-minimized.addEventListener("click",function(){
-    if(isMinimized){
-        textarea.style.display = "none";
-    }
-    else{
-        textarea.style.diplay = "";
-    }
-    isMinimized = !isMinimized;
-})
+// minimized.addEventListener("click",function(){
+//     if(isMinimized){
+//         textarea.style.display = "none";
+//     }
+//     else{
+//         textarea.style.display = "block";
+//     }
+//     isMinimized = !isMinimized;
+// })
+
+// close.addEventListener("click",function(){
+
+//     stickyPad.remove();
+
+// })
+
+    
+
+}
+
+
+
+
+
+
+
+
+
 
 
 
